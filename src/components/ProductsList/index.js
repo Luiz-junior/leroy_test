@@ -32,10 +32,7 @@ function ProductsList() {
       document.getElementById(`card-container-${id}`).style.borderBottom = 'none'
       document.getElementById(`offer-price-${id}`).classList.add('from-active')
       document.getElementById(`main-price-${id}`).classList.add('to-price')
-
       document.getElementById(`section-yellow-${id}`).style.display = 'block'
-
-      // manipular o dom aqui
     }
   }
 
@@ -44,7 +41,6 @@ function ProductsList() {
 
   return (
     <div className="products-list-container">
-      {/* {console.log('prods ', products)} */}
       {products.map(prod => {
         return (
           <div

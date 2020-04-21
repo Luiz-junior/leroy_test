@@ -87,4 +87,40 @@
   position: relative;
   right: 15px;
 }
+
+.header-container .section-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #158110;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 109px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+}
+
+.header-container .section-message .text-message {
+  margin-left: 10px;
+}
+
+.header-container .section-message .close-message {
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+}
 /*# sourceMappingURL=styles.css.map */
