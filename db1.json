@@ -1,0 +1,123 @@
+{
+  "products": [
+    {
+      "id": 89308930,
+      "name": "Fita adesiva para demarcação 30 metros - Nove54",
+      "picture": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png",
+      "price": {
+        "to": {
+          "integers": 169,
+          "decimals": 90
+        },
+        "from": null
+      },
+      "unit": "cada",
+      "installments": {
+        "amount": 10,
+        "price": {
+          "integers": 14,
+          "decimals": 99
+        }
+      },
+      "tag": {
+        "label": null
+      },
+      "offer": {
+        "label": "Oferta",
+        "type": "offer",
+        "value": 11
+      },
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png"
+    },
+    {
+      "id": 89308931,
+      "name": "Furadeira de Impacto 1/2 1010W Hp2070 220V Makita",
+      "picture": "https://marvel-live.freetls.fastly.net/canvas/2019/5/200966d0e7fc4654ad80b9e3eca7fb6e?quality=95&fake=.png",
+      "price": {
+        "to": {
+          "integers": 169,
+          "decimals": 90
+        },
+        "from": {
+          "integers": 149,
+          "decimals": 90
+        }
+      },
+      "unit": "cada",
+      "installments": {
+        "amount": 10,
+        "price": {
+          "integers": 8,
+          "decimals": 99
+        }
+      },
+      "tag": {
+        "label": "Exclusivo"
+      },
+      "offer": {
+        "label": "Oferta",
+        "type": "offer",
+        "value": 11
+      },
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/200966d0e7fc4654ad80b9e3eca7fb6e?quality=95&fake=.png"
+    },
+    {
+      "id": 89308933,
+      "name": "Parafusadeira/Furadeira 3/8 8V LD008-BR Bivolt Black & Decker",
+      "picture": "https://marvel-live.freetls.fastly.net/canvas/2019/5/707c345ff7ad445faa0c582bd51b24ee?quality=95&fake=.png",
+      "price": {
+        "to": {
+          "integers": 965,
+          "decimals": 90
+        },
+        "from": null
+      },
+      "unit": "cada",
+      "installments": {
+        "amount": 8,
+        "price": {
+          "integers": 120,
+          "decimals": 74
+        }
+      },
+      "tag": {
+        "label": null
+      },
+      "offer": {
+        "label": "Oferta",
+        "type": "offer",
+        "value": 11
+      },
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/707c345ff7ad445faa0c582bd51b24ee?quality=95&fake=.png"
+    },
+    {
+      "id": 89308934,
+      "name": "Parafusadeira Drywall 1/4 701W GSR 645 TE 127V ",
+      "picture": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png",
+      "price": {
+        "to": {
+          "integers": 965,
+          "decimals": 90
+        },
+        "from": null
+      },
+      "unit": "cada",
+      "installments": {
+        "amount": 8,
+        "price": {
+          "integers": 120,
+          "decimals": 74
+        }
+      },
+      "tag": {
+        "label": null
+      },
+      "offer": {
+        "label": "Oferta",
+        "type": "offer",
+        "value": 11
+      },
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png"
+    }
+  ]
+}

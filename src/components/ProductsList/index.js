@@ -7,8 +7,6 @@ import furadeira from '../../assets/img/furadeira.png'
 import { getProducts } from '../../store/actions/productsAction'
 import { addCart } from '../../store/actions/cartAction'
 
-//let productsCart = []
-
 function ProductsList() {
   const dispatch = useDispatch()
 

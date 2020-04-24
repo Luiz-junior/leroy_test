@@ -1,0 +1,141 @@
+body {
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav .section-top {
+  text-align: left;
+  position: relative;
+  height: 30px;
+}
+
+.sidenav .section-top .close-btn {
+  position: absolute;
+  bottom: 10px;
+  left: -20px;
+  font-size: 36px;
+  color: #78be20;
+}
+
+.sidenav .section-top .top-text {
+  padding-left: 60px;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  position: absolute;
+  bottom: 25px;
+}
+
+.sidenav .section-freight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sidenav .section-freight .freight-input {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 30px;
+  width: 90%;
+  height: 39px;
+  outline: none;
+  color: #a6a6a6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  padding-left: 10px;
+}
+
+.sidenav .section-freight .freight-input::-webkit-input-placeholder {
+  color: #a6a6a6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.sidenav .section-freight .freight-input:-ms-input-placeholder {
+  color: #a6a6a6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.sidenav .section-freight .freight-input::-ms-input-placeholder {
+  color: #a6a6a6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.sidenav .section-freight .freight-input::placeholder {
+  color: #a6a6a6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.sidenav .section-content .line {
+  width: 95%;
+  border: 1px solid #e5e5e5;
+  margin-top: 20px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+#mainApp {
+  -webkit-transition: margin-left 0.5s;
+  transition: margin-left 0.5s;
+  /* &::after {
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    background: red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+  } */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    width: 100%;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

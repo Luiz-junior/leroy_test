@@ -1,3 +1,5 @@
 export const GET_PRODUCTS = 'GET_PRODUCTS'
+export const GET_PRODS_CART = 'GET_PRODS_CART'
 export const ADD_CART = 'ADD_CART'
+export const CHANGE_SOMETHING = 'CHANGE_SOMETHING'
 export const ERROR = 'ERROR'
