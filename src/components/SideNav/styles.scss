@@ -71,6 +71,76 @@ body {
       border: 1px solid #e5e5e5;
       margin-top: 20px;
     }
+
+    .dashed-line {
+      border: 1px dotted #e5e5e5;
+      width: 95%;
+      margin-top: 20px;
+    }
+  }
+
+  .section-subtotal {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    align-items: center;
+    margin: 0 auto;
+
+    .total-freight,
+    .subtotal,
+    .go-cart {
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      padding: 15px 0;
+    }
+
+    .total-freight {
+      .freight-text,
+      .freight-value {
+        color: #3c3738;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+      }
+    }
+
+    .subtotal {
+      .subtotal-text,
+      .subtotal-value {
+        color: #3c3738;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 22px;
+      }
+    }
+
+    .go-cart {
+      .btn-go-cart {
+        background: #78be20;
+        border-radius: 20px;
+        width: 100%;
+        height: 40px;
+        border: none;
+
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 17px;
+        transition: ease-in-out .5s;
+        outline: none;
+
+        &:hover {
+          background: #63a31a;
+        }
+
+        &:active {
+          background: #fff;
+          color: #78be20;
+          border: 1px solid #78be20;
+        }
+      }
+    }
   }
 }
 

@@ -7,11 +7,25 @@
 }
 
 .products-card .prod-card .prod-img-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100px;
   height: 100px;
   border-radius: 15px;
   border: 1px solid #e5e5e5;
   margin-top: 20px;
+}
+
+.products-card .prod-card .prod-img-card > img {
+  width: 90px;
+  height: 90px;
 }
 
 .products-card .prod-card .prod-card-info {

@@ -24,9 +24,21 @@ function SideNav() {
         </section>
 
         <section className="section-content">
-          <hr className="line" />
           <ProductsCart />
-          <hr className="line" />
+        </section>
+
+        <section className="section-subtotal">
+          <div className="total-freight">
+            <span className="freight-text">Frete</span>
+            <span className="freight-value">-</span>
+          </div>
+          <div className="subtotal">
+            <strong className="subtotal-text">Subtotal</strong>
+            <strong className="subtotal-value">R$ 3.081,70</strong>
+          </div>
+          <div className="go-cart">
+            <button className="btn-go-cart">Ir para o carrinho</button>
+          </div>
         </section>
       </div>
     </div>

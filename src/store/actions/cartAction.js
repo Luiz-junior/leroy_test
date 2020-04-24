@@ -26,8 +26,6 @@ export const getProductsCart = (idProductsCart) => {
     idProductsCart.map(async id => {
       let res = await api.get(`/products/${id}`)
 
-      console.log('res: ', res.data)
-
       try {
         dispatch({
           type: GET_PRODS_CART,
