@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './styles.scss'
-import fita from '../../assets/img/fita-adesiva.png'
-import furadeira from '../../assets/img/furadeira.png'
 import { getProducts } from '../../store/actions/productsAction'
 import { addCart } from '../../store/actions/cartAction'
 

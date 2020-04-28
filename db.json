@@ -27,7 +27,8 @@
         "type": "offer",
         "value": 11
       },
-      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png"
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png",
+      "qtdCart": 1
     },
     {
       "id": 89308931,
@@ -35,7 +36,7 @@
       "picture": "https://marvel-live.freetls.fastly.net/canvas/2019/5/200966d0e7fc4654ad80b9e3eca7fb6e?quality=95&fake=.png",
       "price": {
         "to": {
-          "integers": 169,
+          "integers": 189,
           "decimals": 90
         },
         "from": {
@@ -59,7 +60,8 @@
         "type": "offer",
         "value": 11
       },
-      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/200966d0e7fc4654ad80b9e3eca7fb6e?quality=95&fake=.png"
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/200966d0e7fc4654ad80b9e3eca7fb6e?quality=95&fake=.png",
+      "qtdCart": 1
     },
     {
       "id": 89308933,
@@ -88,7 +90,8 @@
         "type": "offer",
         "value": 11
       },
-      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/707c345ff7ad445faa0c582bd51b24ee?quality=95&fake=.png"
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/707c345ff7ad445faa0c582bd51b24ee?quality=95&fake=.png",
+      "qtdCart": 1
     },
     {
       "id": 89308934,
@@ -117,7 +120,8 @@
         "type": "offer",
         "value": 11
       },
-      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png"
+      "url": "https://marvel-live.freetls.fastly.net/canvas/2019/5/5c69de4fcd9d4318bab63c84d1a57df8?quality=95&fake=.png",
+      "qtdCart": 1
     }
   ]
 }

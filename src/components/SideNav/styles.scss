@@ -22,10 +22,15 @@ body {
 
     .close-btn {
       position: absolute;
-      bottom: 10px;
-      left: -20px;
-      font-size: 36px;
+      bottom: 12px;
+      left: 10px;
+      font-size: 40px;
       color: #78be20;
+
+      background: none;
+      border: none;
+      outline: none;
+      z-index: 3;
     }
 
     .top-text {
@@ -159,6 +164,8 @@ body {
 
 #mainApp {
   transition: margin-left 0.5s;
+  position: relative;
+  z-index: 3;
 
   /* &::after {
     content: '';

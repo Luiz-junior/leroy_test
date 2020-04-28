@@ -48,7 +48,7 @@ function Header() {
         </div>
 
         <div className="section-message" id="section-message">
-        {/* <div className={`section-message ${}`} id="section-message"> */}
+        {/* <div className={`section-message ${qtdProdCart > 0 ? style.visibility: 'visible'}`} id="section-message"> */}
           <span className="text-message">Produto adicionado ao carrinho com sucesso!</span>
           <span className="close-message">X</span>
         </div>
