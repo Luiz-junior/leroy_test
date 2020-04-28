@@ -66,11 +66,14 @@
         top: -35px;
 
         color: #f6d835;
-        /* font-family: LeroyMerlinSans; */
         font-size: 14px;
         font-weight: 600;
         line-height: 17px;
         display: none;
+
+        @media (min-width: 768px) {
+          width: 105%;
+        }
       }
 
       .details-info {
