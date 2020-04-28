@@ -2,38 +2,39 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './styles.scss'
-import { getProductsCart, addAllProdsCart, subTotal, goCart as goCartAction } from '../../store/actions/cartAction'
+import { getProductsCart, addAllProdsCart as addAllProdsCartAction, subTotal, goCart as goCartAction } from '../../store/actions/cartAction'
 
 let cart = []
 
 function ProductsCart() {
   const dispatch = useDispatch()
 
-  const { idProdsCart, changeSomething, productsAddedCart, goCart } = useSelector(state => ({
+  const { idProdsCart, changeSomething, productsAddedCart, goCart, allProdsCart } = useSelector(state => ({
     idProdsCart: state.cart.productsCart,
     changeSomething: state.cart.changeSomething,
     productsAddedCart: state.cart.productsAddedCart,
     goCart: state.cart.goCart,
+    allProdsCart: state.cart.allProdsCart,
   }))
 
   const [QtdProdCart, setQtdProdCart] = useState(0)
 
   useEffect(() => {
-    
+    calcSubTotal(productsAddedCart)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, productsAddedCart, QtdProdCart])
+
+  const calcSubTotal = productsAddedCart => {
     if (productsAddedCart.length > 0) {
       productsAddedCart.reduce((prevValue, currentValue) => {
-        let subtotal = parseFloat(`${prevValue.price.to.integers}.${prevValue.price.to.decimals}`)
-          + parseFloat(`${currentValue.price.to.integers}.${currentValue.price.to.decimals}`)
-          
-          dispatch(subTotal(subtotal))
+        let subtotal =
+          (parseFloat(`${prevValue.price.to.integers}.${prevValue.price.to.decimals}`) * prevValue.qtdCart) +
+          (parseFloat(`${currentValue.price.to.integers}.${currentValue.price.to.decimals}`) * currentValue.qtdCart)
+
+        dispatch(subTotal(subtotal))
       })
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, productsAddedCart])
-
-  useEffect(() => {
-    console.log('vaiii', goCart)
-  }, [goCart])
+  }
 
   useEffect(() => {
     dispatch(getProductsCart(idProdsCart))
@@ -60,7 +61,7 @@ function ProductsCart() {
       }
 
       setQtdProdCart(QtdProdCart + 1)
-      dispatch(addAllProdsCart(cart))
+      dispatch(addAllProdsCartAction(cart))
       dispatch(goCartAction(goCart))
     })
   }
