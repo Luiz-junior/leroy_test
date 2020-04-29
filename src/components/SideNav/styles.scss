@@ -2,6 +2,13 @@ body {
   transition: background-color 0.5s;
 }
 
+/* .sidenav-container {
+  background: red;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+} */
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -13,6 +20,9 @@ body {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .section-top {
     text-align: left;
@@ -91,6 +101,14 @@ body {
     align-items: center;
     margin: 0 auto;
 
+    @media (min-width: 768px) {
+      /* position: inherit;
+      bottom: 0;
+      right: 10px;
+      width: 25%; */
+
+    }
+
     .total-freight,
     .subtotal,
     .go-cart {
@@ -149,6 +167,19 @@ body {
   }
 }
 
+.sidenav::after {
+  content: '';
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -165,7 +196,7 @@ body {
 #mainApp {
   transition: margin-left 0.5s;
   position: relative;
-  z-index: 3;
+  z-index: 0;
 
   /* &::after {
     content: '';

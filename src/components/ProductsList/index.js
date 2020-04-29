@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './styles.scss'
@@ -7,6 +7,9 @@ import { addCart } from '../../store/actions/cartAction'
 
 function ProductsList() {
   const dispatch = useDispatch()
+
+  const [display, setDisplay] = useState('')
+  const [borderBottom, setBorderBottom] = useState('')
 
   const { products, loading, qtdProdCart } = useSelector(state => ({
     products: state.prods.products,
@@ -23,7 +26,9 @@ function ProductsList() {
 
   const onLoadOffer = (from, label, id) => {
     if (from && label) {
+      //setDisplay('block')
       document.getElementById(`exclusivity-${id}`).style.display = 'block'
+
       document.getElementById(`offer-discount-${id}`).style.display = 'flex'
       document.getElementById(`card-container-${id}`).style.borderBottom = 'none'
       document.getElementById(`offer-price-${id}`).classList.add('from-active')
@@ -45,7 +50,7 @@ function ProductsList() {
             id={`card-container-${prod.id}`}
             onLoad={() => onLoadOffer(prod.price.from, prod.tag.label, prod.id)}
           >
-            <span className="exclusivity" id={`exclusivity-${prod.id}`}> Exclusividade </span>
+            <span className="exclusivity" style={{ display }} id={`exclusivity-${prod.id}`}> Exclusividade </span>
             <div className="card-img">
               <img src={prod.picture} alt="Imagem do Produto" className="product-img" />
             </div>

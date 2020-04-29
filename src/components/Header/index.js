@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import cart from '../../assets/img/cart.svg'
@@ -10,6 +10,10 @@ import { changeSomething } from '../../store/actions/cartAction'
 function Header() {
   const dispatch = useDispatch()
 
+  const [visibility, setVisibility] = useState('')
+  const [opacity, setOpacity] = useState(0)
+  const [width, setWidth] = useState('')
+
   const { qtdProdCart } = useSelector(state => ({
     qtdProdCart: state.cart.qtd
   }))
@@ -17,27 +21,29 @@ function Header() {
   useEffect(() => {
     setTimeout(() => {
       if (qtdProdCart > 0) {
-        document.getElementById('section-message').style.visibility = 'visible'
-        document.getElementById('section-message').style.opacity = 1
+        setVisibility('visible')
+        setOpacity(1)
       }
 
       setTimeout(() => {
-        document.getElementById('section-message').style.visibility = 'hidden'
-        document.getElementById('section-message').style.opacity = 0
+        setVisibility('hidden')
+        setOpacity(0)
       }, 5000);
     }, 500);
   }, [qtdProdCart])
 
   const onOpenNav = () => {
-    document.getElementById("mySidenav").style.width = "375px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-
+    document.getElementById("sidenav").style.width = "375px";
+    document.getElementById("header-container").style.background = "#558f0f";
+    // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    document.getElementById("mainApp").style.backgroundColor = "rgba(0,0,0,0.4)";
+    
     dispatch(changeSomething())
   }
 
   return (
     <>
-      <div className="header-container">
+      <div className="header-container" id="header-container">
         <div className="header-section">
           <img src={logo} alt="Logo" className="logo-icon" />
           <h1 className="title">Os melhores produtos</h1>
@@ -47,7 +53,8 @@ function Header() {
           </div>
         </div>
 
-        <div className="section-message" id="section-message">
+        <div className="section-message" id="section-message" style={{ visibility, opacity }}>
+        {/* <div className="section-message" id="section-message"> */}
         {/* <div className={`section-message ${qtdProdCart > 0 ? style.visibility: 'visible'}`} id="section-message"> */}
           <span className="text-message">Produto adicionado ao carrinho com sucesso!</span>
           <span className="close-message">X</span>

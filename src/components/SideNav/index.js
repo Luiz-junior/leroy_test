@@ -1,36 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './styles.scss'
 import ProductsCart from '../ProductsCart'
 import { goCart } from '../../store/actions/cartAction'
 
-function SideNav() {
+function SideNav(props) {
   const dispatch = useDispatch()
+
+  const [width, setWidth] = useState();
+  const [marginLeft, setMarginLeft] = useState();
 
   const { subtotal } = useSelector(state => ({
     subtotal: state.cart.subtotal
   }))
 
-  /* useEffect(() => {
-    subtotal 
-  }, []) */
-
-
   const onCloseNav = () => {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("mainApp").style.marginLeft = "0";
+    // setWidth(0);
+    document.getElementById("sidenav").style.width = "0";
+    document.getElementById("header-container").style.background = "#78be20";
     document.body.style.backgroundColor = "#fff";
   }
 
-  const onGoCart = () => {
-    dispatch(goCart())
-  }
+  const onGoCart = () => { dispatch(goCart()) }
 
   return (
     <div className="sidenav-container">
-      {/* {console.log('subTotalLL: ', subtotal)} */}
-      <div id="mySidenav" className="sidenav">
+      <div id="sidenav" className={`sidenav`} /* style={{ width }} */>
+        <div className="teste-1">
         <section className="section-top">
           <button className="close-btn" onClick={() => onCloseNav()} >&times;</button>
           <span className="top-text">Produtos no carrinho</span>
@@ -43,6 +40,7 @@ function SideNav() {
         <section className="section-content">
           <ProductsCart />
         </section>
+        </div>
 
         <section className="section-subtotal">
           <div className="total-freight">
