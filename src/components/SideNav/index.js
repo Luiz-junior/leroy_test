@@ -11,14 +11,15 @@ function SideNav(props) {
   const [width, setWidth] = useState();
   const [marginLeft, setMarginLeft] = useState();
 
-  const { subtotal } = useSelector(state => ({
-    subtotal: state.cart.subtotal
+  const { subtotal, qtdProdCart } = useSelector(state => ({
+    subtotal: state.cart.subtotal,
+    qtdProdCart: state.cart.qtd
   }))
 
   const onCloseNav = () => {
     // setWidth(0);
-    document.getElementById("sidenav").style.width = "0";
-    document.getElementById("header-container").style.background = "#78be20";
+    // document.getElementById("sidenav").style.width = "0";
+    // document.getElementById("header-container").style.background = "#78be20";
     document.body.style.backgroundColor = "#fff";
   }
 
@@ -26,20 +27,20 @@ function SideNav(props) {
 
   return (
     <div className="sidenav-container">
-      <div id="sidenav" className={`sidenav`} /* style={{ width }} */>
+      <div id="mySidenav" className="sidenav" /* style={{ width }} */>
         <div className="teste-1">
-        <section className="section-top">
-          <button className="close-btn" onClick={() => onCloseNav()} >&times;</button>
-          <span className="top-text">Produtos no carrinho</span>
-        </section>
+          <section className="section-top">
+            <button className="close-btn" onClick={() => onCloseNav()} >&times;</button>
+            <span className="top-text">Produtos no carrinho</span>
+          </section>
 
-        <section className="section-freight">
-          <input type="text" className="freight-input" onChange={() => { }} placeholder="Calcular CEP" />
-        </section>
+          <section className="section-freight">
+            <input type="text" className="freight-input" onChange={() => { }} placeholder="Calcular CEP" />
+          </section>
 
-        <section className="section-content">
-          <ProductsCart />
-        </section>
+          <section className="section-content">
+            <ProductsCart />
+          </section>
         </div>
 
         <section className="section-subtotal">
@@ -49,12 +50,10 @@ function SideNav(props) {
           </div>
           <div className="subtotal">
             <strong className="subtotal-text">Subtotal</strong>
-            {/* <strong className="subtotal-value">R$ {subtotal}</strong> */}
             {subtotal !== 0
               ? <strong className="subtotal-value">R$ {subtotal}</strong>
               : <strong className="subtotal-value">R$ {0}</strong>
             }
-
           </div>
           <div className="go-cart">
             <button className="btn-go-cart" onClick={() => onGoCart()}>Ir para o carrinho</button>

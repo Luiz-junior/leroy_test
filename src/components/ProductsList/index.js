@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import './styles.scss'
+import './styles.css'
 import { getProducts } from '../../store/actions/productsAction'
 import { addCart } from '../../store/actions/cartAction'
+import { ProductsListContainer, CardContainer, Loading, CardDetails } from './styles'
 
-function ProductsList() {
+function ProductsList(props) {
   const dispatch = useDispatch()
 
-  const [display, setDisplay] = useState('')
   const [borderBottom, setBorderBottom] = useState('')
 
   const { products, loading, qtdProdCart } = useSelector(state => ({
@@ -19,16 +19,13 @@ function ProductsList() {
 
   useEffect(() => {
     dispatch(getProducts())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch])
 
   const onAddCart = (id, qtd) => { dispatch(addCart(id, qtd)) }
 
   const onLoadOffer = (from, label, id) => {
     if (from && label) {
-      //setDisplay('block')
       document.getElementById(`exclusivity-${id}`).style.display = 'block'
-
       document.getElementById(`offer-discount-${id}`).style.display = 'flex'
       document.getElementById(`card-container-${id}`).style.borderBottom = 'none'
       document.getElementById(`offer-price-${id}`).classList.add('from-active')
@@ -38,23 +35,27 @@ function ProductsList() {
   }
 
   if (loading)
-    return <div className="loading"> <strong >Carregando...</strong> </div>
+    return <Loading> <strong >Carregando...</strong> </Loading>
 
   return (
-    <div className="products-list-container">
+    <ProductsListContainer display={props.display}>
       {products.map(prod => {
+        let from = prod.price.from
+        let label = prod.tag.label
+
         return (
-          <div
+          <CardContainer
             key={prod.id}
             className="card-container"
             id={`card-container-${prod.id}`}
             onLoad={() => onLoadOffer(prod.price.from, prod.tag.label, prod.id)}
           >
-            <span className="exclusivity" style={{ display }} id={`exclusivity-${prod.id}`}> Exclusividade </span>
+            <span className="exclusivity" /* style={{ display }}  */ id={`exclusivity-${prod.id}`}> Exclusividade </span>
+           
             <div className="card-img">
               <img src={prod.picture} alt="Imagem do Produto" className="product-img" />
             </div>
-            <div className="card-details">
+            <CardDetails>
               <div className="offer-discount" id={`offer-discount-${prod.id}`}>
                 <span className="offer-text">OFERTA</span>
                 <span className="offer-value">-{prod.offer.value}%</span>
@@ -94,11 +95,11 @@ function ProductsList() {
                 </span>
               </div>
               <div className="section-yellow" id={`section-yellow-${prod.id}`}></div>
-            </div>
-          </div>
+            </CardDetails>
+          </CardContainer>
         )
       })}
-    </div>
+    </ProductsListContainer>
   )
 }
 

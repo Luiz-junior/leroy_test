@@ -31,32 +31,6 @@
         display: block;
       }
     }
-
-    .section-cart {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .cart-icon {
-        height: 25px;
-        transform: rotateY(180deg);
-        padding: 0px 5px;
-      }
-
-      .qtd-prod {
-        color: #fff;
-        font-size: 13px;
-        background: #DF3828;
-        border-radius: 100%;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        right: 15px;
-      }
-    }
   }
 
   .section-message {

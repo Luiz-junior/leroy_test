@@ -2,13 +2,6 @@ body {
   transition: background-color 0.5s;
 }
 
-/* .sidenav-container {
-  background: red;
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
-} */
-
 .sidenav {
   height: 100%;
   width: 0;
@@ -17,12 +10,12 @@ body {
   top: 0;
   right: 0;
   background-color: #fff;
-  overflow-x: hidden;
+  overflow-y: auto;
   transition: 0.5s;
   padding-top: 60px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; */
 
   .section-top {
     text-align: left;
@@ -106,7 +99,6 @@ body {
       bottom: 0;
       right: 10px;
       width: 25%; */
-
     }
 
     .total-freight,
@@ -150,7 +142,7 @@ body {
         font-size: 14px;
         font-weight: 600;
         line-height: 17px;
-        transition: ease-in-out .5s;
+        transition: ease-in-out 0.5s;
         outline: none;
 
         &:hover {
@@ -165,19 +157,6 @@ body {
       }
     }
   }
-}
-
-.sidenav::after {
-  content: '';
-  height: 100vh;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
 }
 
 .sidenav a {
@@ -196,20 +175,6 @@ body {
 #mainApp {
   transition: margin-left 0.5s;
   position: relative;
-  z-index: 0;
-
-  /* &::after {
-    content: '';
-    height: 100vh;
-    width: 100vw;
-    background: red;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 0;
-  } */
 }
 
 @media screen and (max-height: 450px) {

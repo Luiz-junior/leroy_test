@@ -25,13 +25,16 @@ function ProductsCart() {
   }, [dispatch, productsAddedCart, QtdProdCart])
 
   const calcSubTotal = productsAddedCart => {
+
     if (productsAddedCart.length > 0) {
       productsAddedCart.reduce((prevValue, currentValue) => {
-        let subtotal =
-          (parseFloat(`${prevValue.price.to.integers}.${prevValue.price.to.decimals}`) * prevValue.qtdCart) +
-          (parseFloat(`${currentValue.price.to.integers}.${currentValue.price.to.decimals}`) * currentValue.qtdCart)
 
-        dispatch(subTotal(subtotal))
+      let a = (parseFloat(`${prevValue.price.to.integers}.${prevValue.price.to.decimals}`) * prevValue.qtdCart) + 
+      (parseFloat(`${currentValue.price.to.integers}.${currentValue.price.to.decimals}`) * currentValue.qtdCart)
+        
+      console.log('sub', a)
+      dispatch(subTotal(a))
+      return a
       })
     }
   }
@@ -101,27 +104,11 @@ function ProductsCart() {
                       <input className="input-value-qtd" type="text" value={prod.qtdCart} onChange={() => { }} />
                       <button className="btn-add" onClick={() => onAddProdCart(prod.id)}>+</button>
                     </div>
-                    {/* <span className="qtd-value">{1} un. R$ {"599,90"}</span> */}
-                    {/* {subtotal < 0
-                      ? <span className="qtd-value">{1} un. R$ {0}</span>
-                      : <span className="qtd-value">{1} un. R$ {subtotal}</span>
-                    } */}
 
                     {cart.length > 0 && cart[i] !== undefined
                       ? <span className="qtd-value">{`${cart[i].qtdProCart}`} un. R$ {`${cart[i].totalProd}`}</span>
                       : <span className="qtd-value">{prod.qtdCart} un. R$ {priceProd}</span>
                     }
-
-
-                    {/* { cart.length > 0 && cart[i] !== undefined 
-                      ? cart.reduce((prev, current) => console.log('total: ', prev.totalProd + current.totalProd)) 
-                      : []
-                    } */}
-                    {/* {cart.length > 0 && cart[i] !== undefined
-                      ? <span className="qtd-value">{ cart.reduce((prev, current) => prev.totalProd + current.totalProd) } un. R$ {"599,90"}</span>
-                      ? <span className="">{`${cart[i].qtdProCart}`} un. R$ {`${cart[i].totalProd}`}</span>
-                      : <span className="">{prod.qtdCart} un. R$ {parseFloat(`${prod.price.to.integers}.${prod.price.to.decimals}`)}</span>
-                    } */}
                   </div>
                 </div>
               </div>
