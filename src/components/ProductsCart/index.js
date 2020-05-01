@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import './styles.scss'
+// import './styles.scss'
+import { ProdCard, ProdImgCard, ProdCardInfo } from './styles'
 import { getProductsCart, addAllProdsCart as addAllProdsCartAction, subTotal, goCart as goCartAction } from '../../store/actions/cartAction'
 
 let cart = []
@@ -25,17 +26,11 @@ function ProductsCart() {
   }, [dispatch, productsAddedCart, QtdProdCart])
 
   const calcSubTotal = productsAddedCart => {
-
     if (productsAddedCart.length > 0) {
-      productsAddedCart.reduce((prevValue, currentValue) => {
-
-      let a = (parseFloat(`${prevValue.price.to.integers}.${prevValue.price.to.decimals}`) * prevValue.qtdCart) + 
-      (parseFloat(`${currentValue.price.to.integers}.${currentValue.price.to.decimals}`) * currentValue.qtdCart)
-        
-      console.log('sub', a)
-      dispatch(subTotal(a))
-      return a
-      })
+      let total = productsAddedCart.reduce((prev, curr) => 
+        prev + parseFloat(`${curr.price.to.integers}.${curr.price.to.decimals}`) * curr.qtdCart, 0)
+      
+      dispatch(subTotal(total))
     }
   }
 
@@ -73,26 +68,24 @@ function ProductsCart() {
     return <strong>Não há produtos no carrinho :(</strong>
 
   return (
-    <div className="productCart-Container">
-      {/* {console.log("cart: ", cart)} */}
+    <div className="productcart-container">
       {productsAddedCart.map((prod, i) => {
         let priceProd = parseFloat(`${prod.price.to.integers}.${prod.price.to.decimals}`)
 
         return (
           <div key={i} className="products-card">
             <hr className="line" />
-            <div className="prod-card">
-              <div className="prod-img-card">
+            <ProdCard>
+              <ProdImgCard>
                 <img src={prod.picture} alt="Imagem produto" />
-              </div>
-              <div className="prod-card-info">
+              </ProdImgCard>
+              <ProdCardInfo>
                 <div className="prod-description">
                   <span className="prod-description-text">{prod.name}</span>
                 </div>
                 <div className="prod-qtd-value">
                   <div className="code-value">
                     <span>Cód. {prod.id} </span>
-                    {/* <span className="">1 un. R$ 119,90</span> */}
                     {cart.length > 0 && cart[i] !== undefined
                       ? <span className="">{`${cart[i].qtdProCart}`} un. R$ {`${cart[i].totalProd}`}</span>
                       : <span className="">{prod.qtdCart} un. R$ {priceProd}</span>
@@ -111,8 +104,8 @@ function ProductsCart() {
                     }
                   </div>
                 </div>
-              </div>
-            </div>
+              </ProdCardInfo>
+            </ProdCard>
           </div>
         )
       })}

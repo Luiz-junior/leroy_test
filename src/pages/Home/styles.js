@@ -15,7 +15,7 @@ export const SectionCart = styled.div`
   align-items: center;
   position: absolute;
   right: 0px;
-  top: 70px;
+  top: 65px;
 
   .cart-icon {
     height: 25px;
