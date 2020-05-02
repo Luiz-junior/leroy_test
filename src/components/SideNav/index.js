@@ -3,26 +3,19 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import './styles.scss'
 import ProductsCart from '../ProductsCart'
-import { goCart, calcFreight } from '../../store/actions/cartAction'
+import { goCart, calcFreight, changeSideNav } from '../../store/actions/cartAction'
 
 function SideNav(props) {
   const dispatch = useDispatch()
 
-  const [width, setWidth] = useState();
-  const [marginLeft, setMarginLeft] = useState();
-
-  const { subtotal, qtdProdCart, freight } = useSelector(state => ({
+  const { subtotal, qtdProdCart, freight, sidenav } = useSelector(state => ({
     subtotal: state.cart.subtotal,
     qtdProdCart: state.cart.qtd,
-    freight: state.cart.freight.freight
+    freight: state.cart.freight.freight,
+    sidenav: state.cart.sidenav
   }))
 
-  const onCloseNav = () => {
-    // setWidth(0);
-    // document.getElementById("sidenav").style.width = "0";
-    // document.getElementById("header-container").style.background = "#78be20";
-    document.body.style.backgroundColor = "#fff";
-  }
+  const onCloseNav = () => { dispatch(changeSideNav({display: 'none', width: 0})) }
 
   const onGoCart = () => { dispatch(goCart()) }
 
@@ -30,7 +23,7 @@ function SideNav(props) {
 
   return (
     <div className="sidenav-container">
-      <div id="mySidenav" className="sidenav" /* style={{ width }} */>
+      <div id="mySidenav" className="sidenav" style={{ width: sidenav.width }}>
         <div className="teste-1">
           <section className="section-top">
             <button className="close-btn" onClick={() => onCloseNav()} >&times;</button>

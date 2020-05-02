@@ -6,7 +6,8 @@ import {
   GO_CART,
   ADD_ALL_PROD_CART,
   SUBTOTAL,
-  GET_FREIGHT
+  GET_FREIGHT,
+  CHANGE_SIDENAV
 } from '../actions/types';
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   goCart: false,
   subtotal: 0,
   freight: {},
+  sidenav: { display: 'none', width: ''},
   error: ''
 }
 
@@ -37,6 +39,10 @@ const cartReducer = (state = initialState, action) => {
       return { ...state, subtotal: action.subtotal }
     case GET_FREIGHT:
       return { ...state, freight: action.freight }
+    case CHANGE_SIDENAV:
+      let { display, width } = action.sidenav
+      
+      return { ...state, sidenav: { display, width } }
     default:
       return state;
   }

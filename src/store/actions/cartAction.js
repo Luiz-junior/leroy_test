@@ -2,16 +2,18 @@ import axios from 'axios'
 
 import api from '../../services/api';
 
-import { 
-  ADD_CART, 
-  GET_PRODS_CART, 
-  CHANGE_SOMETHING, 
-  GO_CART, 
-  ERROR, 
-  ADD_ALL_PROD_CART, 
-  CALC_SUBTOTAL, 
-  SUBTOTAL, 
-  GET_FREIGHT } from './types';
+import {
+  ADD_CART,
+  GET_PRODS_CART,
+  CHANGE_SOMETHING,
+  GO_CART,
+  ERROR,
+  ADD_ALL_PROD_CART,
+  CALC_SUBTOTAL,
+  SUBTOTAL,
+  GET_FREIGHT,
+  CHANGE_SIDENAV
+} from './types';
 
 export const addCart = (productsCart, qtd) => {
   return dispatch => {
@@ -75,5 +77,15 @@ export const calcFreight = cep => {
     } catch (error) {
       dispatch({ type: ERROR, errorStatus: error, loading: false })
     }
+  }
+}
+
+export const changeSideNav = sidenav => {
+  return dispatch => {
+    console.log('side', sidenav)
+    dispatch({
+      type: CHANGE_SIDENAV,
+      sidenav,
+    })
   }
 }
