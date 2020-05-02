@@ -1,7 +1,17 @@
+import axios from 'axios'
 
 import api from '../../services/api';
 
-import { ADD_CART, GET_PRODS_CART, CHANGE_SOMETHING, GO_CART, ERROR, ADD_ALL_PROD_CART, CALC_SUBTOTAL, SUBTOTAL } from './types';
+import { 
+  ADD_CART, 
+  GET_PRODS_CART, 
+  CHANGE_SOMETHING, 
+  GO_CART, 
+  ERROR, 
+  ADD_ALL_PROD_CART, 
+  CALC_SUBTOTAL, 
+  SUBTOTAL, 
+  GET_FREIGHT } from './types';
 
 export const addCart = (productsCart, qtd) => {
   return dispatch => {
@@ -50,5 +60,20 @@ export const addAllProdsCart = (cart) => {
 export const subTotal = (subtotal) => {
   return dispatch => {
     dispatch({ type: SUBTOTAL, subtotal })
+  }
+}
+
+export const calcFreight = cep => {
+  return async dispatch => {
+    let res = await axios.get(`https://zs5utiv3ul.execute-api.us-east-1.amazonaws.com/dev/freight/${cep}`)
+
+    try {
+      dispatch({
+        type: GET_FREIGHT,
+        freight: res.data
+      })
+    } catch (error) {
+      dispatch({ type: ERROR, errorStatus: error, loading: false })
+    }
   }
 }

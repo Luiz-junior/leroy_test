@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import './styles.scss'
 import ProductsCart from '../ProductsCart'
-import { goCart } from '../../store/actions/cartAction'
+import { goCart, calcFreight } from '../../store/actions/cartAction'
 
 function SideNav(props) {
   const dispatch = useDispatch()
@@ -11,9 +11,10 @@ function SideNav(props) {
   const [width, setWidth] = useState();
   const [marginLeft, setMarginLeft] = useState();
 
-  const { subtotal, qtdProdCart } = useSelector(state => ({
+  const { subtotal, qtdProdCart, freight } = useSelector(state => ({
     subtotal: state.cart.subtotal,
-    qtdProdCart: state.cart.qtd
+    qtdProdCart: state.cart.qtd,
+    freight: state.cart.freight.freight
   }))
 
   const onCloseNav = () => {
@@ -25,6 +26,8 @@ function SideNav(props) {
 
   const onGoCart = () => { dispatch(goCart()) }
 
+  const onCalcFreight = (cep) => dispatch(calcFreight(cep))
+
   return (
     <div className="sidenav-container">
       <div id="mySidenav" className="sidenav" /* style={{ width }} */>
@@ -35,7 +38,7 @@ function SideNav(props) {
           </section>
 
           <section className="section-freight">
-            <input type="text" className="freight-input" onChange={() => { }} placeholder="Calcular CEP" />
+            <input type="text" className="freight-input" onBlur={(e) => onCalcFreight(e.target.value)} placeholder="Calcular CEP" />
           </section>
 
           <section className="section-content">
@@ -46,7 +49,7 @@ function SideNav(props) {
         <section className="section-subtotal">
           <div className="total-freight">
             <span className="freight-text">Frete</span>
-            <span className="freight-value">-</span>
+            <span className="freight-value">{!freight ? '-' : freight}</span>
           </div>
           <div className="subtotal">
             <strong className="subtotal-text">Subtotal</strong>

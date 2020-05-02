@@ -27,19 +27,39 @@ function ProductsCart() {
 
   const calcSubTotal = productsAddedCart => {
     if (productsAddedCart.length > 0) {
-      let total = productsAddedCart.reduce((prev, curr) => 
+      let total = productsAddedCart.reduce((prev, curr) =>
         prev + parseFloat(`${curr.price.to.integers}.${curr.price.to.decimals}`) * curr.qtdCart, 0)
-      
+
       dispatch(subTotal(total))
     }
   }
 
   useEffect(() => {
     dispatch(getProductsCart(idProdsCart))
+
+    if(productsAddedCart.length > 0) {
+      cart.push(...productsAddedCart)
+      console.log('C', cart)
+    }
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [changeSomething])
 
-  const onRemoveProdCart = (id) => { }
+  const onRemoveProdCart = (id, i) => {
+    productsAddedCart.filter((item, index) => {
+      let price = parseFloat(`${item.price.to.integers}.${item.price.to.decimals}`)
+      let totalProd = price * item.qtdCart
+
+      if (item.id === id) {
+        item.qtdCart = item.qtdCart - 1
+        cart[index] = { id, qtdProCart: item.qtdCart, totalProd }
+        console.log('cArttt: ', cart)
+        if (item.qtdCart < 1) {
+
+        }
+      }
+    })
+  }
 
   const onAddProdCart = (id) => {
     productsAddedCart.filter((item, index) => {
@@ -93,7 +113,7 @@ function ProductsCart() {
                   </div>
                   <div className="section-select-qtd">
                     <div className="select-qtd">
-                      <button className="btn-remove" onClick={() => onRemoveProdCart(prod.id)}>-</button>
+                      <button className="btn-remove" onClick={() => onRemoveProdCart(prod.id, i)}>-</button>
                       <input className="input-value-qtd" type="text" value={prod.qtdCart} onChange={() => { }} />
                       <button className="btn-add" onClick={() => onAddProdCart(prod.id)}>+</button>
                     </div>

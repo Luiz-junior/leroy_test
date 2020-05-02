@@ -1,5 +1,13 @@
 
-import { ADD_CART, GET_PRODS_CART, CHANGE_SOMETHING, GO_CART, ADD_ALL_PROD_CART, SUBTOTAL } from '../actions/types';
+import {
+  ADD_CART,
+  GET_PRODS_CART,
+  CHANGE_SOMETHING,
+  GO_CART,
+  ADD_ALL_PROD_CART,
+  SUBTOTAL,
+  GET_FREIGHT
+} from '../actions/types';
 
 const initialState = {
   productsCart: [],
@@ -9,6 +17,7 @@ const initialState = {
   changeSomething: false,
   goCart: false,
   subtotal: 0,
+  freight: {},
   error: ''
 }
 
@@ -26,6 +35,8 @@ const cartReducer = (state = initialState, action) => {
       return { ...state, allProdsCart: action.allProdsCart }
     case SUBTOTAL:
       return { ...state, subtotal: action.subtotal }
+    case GET_FREIGHT:
+      return { ...state, freight: action.freight }
     default:
       return state;
   }
