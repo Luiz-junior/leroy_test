@@ -84,7 +84,7 @@ export const ProdCardInfo = styled.div`
 
       .qtd-value {
         color: #333333;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         line-height: 19px;
       }

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import './styles.scss'
+import { Sidenav, SectionTop, SectionFreight, SectionContent, SectionSubtotal } from './styles'
 import ProductsCart from '../ProductsCart'
 import { goCart, calcFreight, changeSideNav } from '../../store/actions/cartAction'
 
@@ -15,7 +15,7 @@ function SideNav(props) {
     sidenav: state.cart.sidenav
   }))
 
-  const onCloseNav = () => { dispatch(changeSideNav({display: 'none', width: 0})) }
+  const onCloseNav = () => { dispatch(changeSideNav({ display: 'none', width: 0 })) }
 
   const onGoCart = () => { dispatch(goCart()) }
 
@@ -23,23 +23,23 @@ function SideNav(props) {
 
   return (
     <div className="sidenav-container">
-      <div id="mySidenav" className="sidenav" style={{ width: sidenav.width }}>
-        <div className="teste-1">
-          <section className="section-top">
+      <Sidenav id="mySidenav" style={{ width: sidenav.width }}>
+        <div>
+          <SectionTop>
             <button className="close-btn" onClick={() => onCloseNav()} >&times;</button>
             <span className="top-text">Produtos no carrinho</span>
-          </section>
+          </SectionTop>
 
-          <section className="section-freight">
+          <SectionFreight>
             <input type="text" className="freight-input" onBlur={(e) => onCalcFreight(e.target.value)} placeholder="Calcular CEP" />
-          </section>
+          </SectionFreight>
 
-          <section className="section-content">
+          <SectionContent>
             <ProductsCart />
-          </section>
+          </SectionContent>
         </div>
 
-        <section className="section-subtotal">
+        <SectionSubtotal>
           <div className="total-freight">
             <span className="freight-text">Frete</span>
             <span className="freight-value">{!freight ? '-' : freight}</span>
@@ -47,15 +47,15 @@ function SideNav(props) {
           <div className="subtotal">
             <strong className="subtotal-text">Subtotal</strong>
             {subtotal !== 0
-              ? <strong className="subtotal-value">R$ {subtotal}</strong>
+              ? <strong className="subtotal-value">R$ {subtotal.toFixed(2)}</strong>
               : <strong className="subtotal-value">R$ {0}</strong>
             }
           </div>
           <div className="go-cart">
             <button className="btn-go-cart" onClick={() => onGoCart()}>Ir para o carrinho</button>
           </div>
-        </section>
-      </div>
+        </SectionSubtotal>
+      </Sidenav>
     </div>
   )
 }

@@ -9,19 +9,14 @@ import { HomeContainer, SectionCart } from './styles'
 function Home() {
   const dispatch = useDispatch()
 
-  // const [display, setDisplay] = useState('none')
-
   const { qtdProdCart, sidenav } = useSelector(state => ({
     qtdProdCart: state.cart.qtd,
     sidenav: state.cart.sidenav
   }))
 
   function onOpenNav() {
-    // document.getElementById("mySidenav").style.width = "375px"
     dispatch(changeSideNav({display: 'block', width: '375px'}))
-    //setDisplay('block')
     dispatch(changeSomething())
-
   }
 
   return (

@@ -82,7 +82,6 @@ export const calcFreight = cep => {
 
 export const changeSideNav = sidenav => {
   return dispatch => {
-    console.log('side', sidenav)
     dispatch({
       type: CHANGE_SIDENAV,
       sidenav,

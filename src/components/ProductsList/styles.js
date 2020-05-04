@@ -93,7 +93,6 @@ export const CardDetails = styled.div`
   }
 
   .details-info {
-    /* width: 110px; */
     padding-right: 10px;
 
     @media (min-width: 768px) {
@@ -102,7 +101,6 @@ export const CardDetails = styled.div`
 
     .details-text {
       color: #333;
-      /* font-family: LeroyMerlinSans; */
       font-size: 14px;
       font-weight: 400;
       line-height: 17px;
@@ -135,11 +133,15 @@ export const CardDetails = styled.div`
     @media (min-width: 768px) {
       text-align: center;
     }
+
+    .unit {
+      font-size: 13px;
+      margin-left: 2px;
+    }
   }
 
   .s-juros {
-    color: #666666;
-    /* font-family: LeroyMerlinSans; */
+    color: #666;
     font-size: 12px;
     font-weight: 400;
     line-height: 14px;
